@@ -26,6 +26,8 @@ min.css">
 	<c:forEach items="${products}" var="product">
 		<div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
 			<div class="thumbnail">
+			
+			<img alt="image" src="<c:url value="/resource/images/${product.productId}.png"></c:url>" style="width: 100%">
 				<div class="caption">
 					<h3>${product.name}</h3>
 					<p>${product.description}</p>
