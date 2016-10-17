@@ -13,7 +13,7 @@ bootstrap.min.css">
 <title>Products</title>
 </head>
 <body>
-<spring:url value="/j_spring_security_check" var="security"></spring:url>
+<spring:url value="/j_spring_security_check" var="security" />
 	<section>
 	<div class="jumbotron">
 		<div class="container">

@@ -15,8 +15,12 @@ bootstrap.min.css">
 <body>
 	<section>
 	<div class="jumbotron">
-		<a href="<c:url value="/j_spring_security_logout" />"
-			class="btn btn-danger btn-mini pull-right">logout</a>
+		<%-- <a href="<c:url value="/j_spring_security_logout" />"
+			class="btn btn-danger btn-mini pull-right">logout</a> --%>
+		<div class="pull-right" style="padding-right: 50px">
+			<a href="?language=en">English</a>|<a href="?language=nl">Dutch</a>
+		</div>
+
 		<div class="container">
 			<h1>Products</h1>
 			<p>Add products</p>
@@ -24,16 +28,22 @@ bootstrap.min.css">
 	</div>
 	</section>
 	<section class="container"> <form:form
-		modelAttribute="newProduct" enctype="multipart/form-data" class="form-horizontal">
+		modelAttribute="newProduct" enctype="multipart/form-data"
+		class="form-horizontal">
 		<fieldset>
 			<legend>Add new product</legend>
 			<div class="form-group">
+				<form:errors path="*" cssClass="alert alert-danger" element="div"/>
+			</div>
+			<div class="form-group">
 				<label class="control-label col-lg-2 col-lg-2" for="productId">
-					<spring:message code="newProduct.id" text="Product-Id" />
+					<spring:message code="addProduct.form.productId.label"
+						text="Product-Id" />
 				</label>
 				<div class="col-lg-10">
 					<form:input id="productId" path="productId" type="text"
 						class="form:input-large" />
+					<form:errors path="productId" cssClass="text-danger" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -42,6 +52,7 @@ bootstrap.min.css">
 				<div class="col-lg-10">
 					<form:input id="name" path="name" type="text"
 						class="form:input-large" />
+					<form:errors path="name" cssClass="text-danger" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -49,6 +60,7 @@ bootstrap.min.css">
 				<div class="col-lg-10">
 					<form:input id="unitPrice" path="unitPrice" type="text"
 						class="form:input-large" />
+					<form:errors path="unitPrice" cssClass="text-danger" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -104,15 +116,16 @@ bootstrap.min.css">
 					Refurbished
 				</div>
 			</div>
-			
+
 			<div class="form-group">
-<label class="control-label col-lg-2" for="productImage">
-<spring:message code="addProdcut.form.productImage.label"/>
-</label>
-<div class="col-lg-10">
-<form:input id="productImage" path="productImage" type="file" class="form:input-large" />
-</div>
-</div>
+				<label class="control-label col-lg-2" for="productImage"> <spring:message
+						code="addProdcut.form.productImage.label" />
+				</label>
+				<div class="col-lg-10">
+					<form:input id="productImage" path="productImage" type="file"
+						class="form:input-large" />
+				</div>
+			</div>
 			<div class="form-group">
 				<div class="col-lg-offset-2 col-lg-10">
 					<input type="submit" id="btnAdd" class="btn btn-primary"
